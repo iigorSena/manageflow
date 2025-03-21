@@ -1,0 +1,46 @@
+{% extends 'Home/modelo.html' %}
+{% load static %}
+
+{% block conexao %}
+<link rel="stylesheet" href="{% static 'Configuracoes/css/style_config.css' %}">
+{% endblock%}
+
+{% block title %}
+<title>Configurações | Manage Flow</title>
+{% endblock %}
+
+
+{% block area-visualizacao %}
+<div id="area-title">
+    <h2 id="title-configuracoes" class="title">Configurações</h2>
+    <hr id="linha-title_configuracoes" class="linha-title">
+</div>
+
+<div id="area-configuracoes">
+    <div id="area-btns_config">
+        <button type="button" id="btn-config_servico" class="btn-config">Novo Serviço</button>
+        <button type="button" id="btn-config_locais" class="btn-config">Locais</button>
+        <button type="button" id="btn-config_senhas" class="btn-config">Senhas</button>
+    </div>
+
+    <div id="area-config_opcoes">
+    </div>
+    
+</div>
+{% endblock %}
+
+
+{% block conexao_js %}
+<script>
+    document.getElementById("btn-config_servico").addEventListener("click", function () {
+        fetch("{% url 'novo_servico' %}", {
+            headers: { "X-Requested-With": "XMLHttpRequest" } // Indica uma requisição AJAX
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("area-config_opcoes").innerHTML = data;
+        })
+        .catch(error => console.error("Erro ao carregar:", error));
+    });
+</script>
+{% endblock %}

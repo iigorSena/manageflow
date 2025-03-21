@@ -12,5 +12,6 @@ urlpatterns = [
     path('home/', HomeView.as_view(), name='home'),
     
     path('configuracoes/', ConfiguracoesView.as_view(), name='configuracoes'),
+    path('configuracoes/novo-servico/', ConfiguracoesView.as_view(), name='novo_servico'),
 
 ]

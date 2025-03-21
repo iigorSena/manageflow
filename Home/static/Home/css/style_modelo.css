@@ -12,6 +12,7 @@ body{
 header{
     width: 100%;
     height: 5vh;
+    padding-block: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -20,13 +21,14 @@ header{
     background-color: black;
 }
 #area-logo{
-    width: 90%;
+    width: 80%;
     padding-left: 10px;
 }
 #area-user{
-    width: 10%;
+    width: 20%;
+    padding-right: 5px;
     display: flex;
-    justify-content: center;
+    justify-content: right;
 }
 
 #main{
@@ -81,4 +83,12 @@ header{
 #img-logout:hover{
     transform: scale(1.08);
     filter: drop-shadow(1px 3px 10px #00c3ff);
+}
+
+#area-visualizacao{
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

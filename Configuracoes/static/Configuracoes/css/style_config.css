@@ -1,0 +1,89 @@
+#area-configuracoes{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#area-btns_config{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+    margin-top: 20px;
+
+}
+.btn-config{
+    flex: 1 0 100px;
+    color: white;
+    background-color: #002430;
+    border: 0.5px solid white;
+}
+.btn-config:hover{
+    transform: scale(1.05);
+    background-color: #00C3FF;
+    box-shadow: 0px 0px 20px #00c3ff;
+}
+#area-config_opcoes{
+    width: 50%;
+}
+
+/* Form Cad Serviço ========================== */
+#form-cad_servico{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    width: 100%;
+    margin-top: 10px;
+
+}
+#area-campos_cad_servicos{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    gap: 15px;
+}
+.area-campos_form{
+    display: flex;
+    flex-direction: column;
+}
+#area-campo_cad_servico_sigla{
+    width: 60px;
+}
+#area-campo_cad_servico_nome{
+    flex: 1 0 140px;
+
+}
+.label-cad_servicos{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+#input-cad_servico_sigla{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#btn-cad_servico{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 20pt;
+    font-weight: bold;
+    color: white;
+    background-color: #00c3ff;
+    border: none;
+    margin-left: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#btn-cad_servico:hover{
+    color: #00c3ff;
+    background-color: white;
+    border: 2px solid #00c3ff;
+    box-shadow: 1px 1px 20px #00c3ff;
+}

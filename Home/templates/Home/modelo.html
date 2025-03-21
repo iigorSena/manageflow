@@ -25,11 +25,11 @@
     <header>
         <span id="area-logo">Manage Flow</span>
         <span id="area-user">
-            {% if setor %}
+            {% for setor in user.setores.all %}
                 {{ setor.nome }} | {{ user.username }}
-            {% else %}
+            {% empty %}
                 Sem setor | {{ user.username }}
-            {% endif %}
+            {% endfor %}
         </span>
     </header>
 
@@ -47,7 +47,9 @@
 
                 <button type="buttom" id="btn-menu_relatorios" class="btn-menu">Relatórios</button>
                 
-                <button type="buttom" id="btn-menu_configuracoes" class="btn-menu">Configurações</button>
+                <button type="buttom" id="btn-menu_configuracoes" class="btn-menu"
+                 onclick="window.location.href='{% url 'configuracoes' %}'">
+                 Configurações</button>
             </div>
 
             <div id="area-opcoes_menu">
@@ -64,6 +66,8 @@
         </div>
     </div>
 
-    
+
+    {% block conexao_js %}
+    {% endblock %}
 </body>
 </html>

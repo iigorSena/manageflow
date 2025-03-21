@@ -1,0 +1,21 @@
+<form method="post" id="form-cad_servico">
+    {% csrf_token %}
+
+    <div id="area-campos_cad_servicos">
+
+        <div id="area-campo_cad_servico_sigla" class="area-campos_form">
+            <label for="id_nome" class="label-cad_servicos">Sigla</label>
+            <input type="text" id="input-cad_servico_sigla" value="{{ FomCadServico.instance.sigla }}" maxlength="3" required>
+        </div>
+
+        <div id="area-campo_cad_servico_nome" class="area-campos_form">
+            <label for="id_descricao" class="label-cad_servicos">Serviço</label>
+            {{ FomCadServico.N_Servico }}
+        </div>
+
+    </div>
+
+    <button type="submit" id="btn-cad_servico">+</button>
+</form>
+
+<hr>

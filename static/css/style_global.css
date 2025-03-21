@@ -1,4 +1,42 @@
+input{
+    width: 100%;
+    font-size: 13pt;
+    color: aqua;  
+    background-color: #002430;
+    padding-block: 5px;
+    border-inline: none;
+    border-bottom:1px solid #00c3ff;
+}
+input:focus{
+    outline: none;
+    background-color: #03394b;
+    border-bottom:3px solid #00c3ff;
+
+}
 button{
     padding-block: 5px;
     cursor: pointer;
+    font-size: 13pt;
+    font-weight: bold;
+    border: none;
+}
+
+#area-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 100%;
+}
+.title{
+    color: white;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    text-align: left;
+}
+.linha-title{
+    height: 4px;
+    width: 13vw;
+    background:linear-gradient(to right, #00C3FF, transparent);
+    border: none;
+    margin-left: 5px;
 }

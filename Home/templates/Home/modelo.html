@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style_global.css' %}">
+    <link rel="stylesheet" href="{% static 'Home/css/style_modelo.css' %}">
+
+    {% block conexao %}
+    {% endblock%}
+
+    {% block title %}
+    <title>Modelo | Manage Flow</title>
+    {% endblock %}
+
+</head>
+
+<body>
+    <header>
+        <span id="area-logo">Manage Flow</span>
+        <span id="area-user">
+            {% if setor %}
+                {{ setor.nome }} | {{ user.username }}
+            {% else %}
+                Sem setor | {{ user.username }}
+            {% endif %}
+        </span>
+    </header>
+
+    <div id="main">
+        <div id="menu-esquerdo">
+            <div id="area-btn_menu">
+
+                <button type="buttom" id="btn-menu_atendimento" class="btn-menu">
+                    <img src="{% static 'Home/images/suporte.png' %}" class="icone-menu">
+                    Atendimento</button>
+
+                <button type="buttom" id="btn-menu_monitoramento" class="btn-menu">Monitoramento</button>
+
+                <button type="buttom" id="btn-menu_triagem" class="btn-menu">Triagem</button>
+
+                <button type="buttom" id="btn-menu_relatorios" class="btn-menu">Relatórios</button>
+                
+                <button type="buttom" id="btn-menu_configuracoes" class="btn-menu">Configurações</button>
+            </div>
+
+            <div id="area-opcoes_menu">
+                <a id="btn-logout" href="{% url 'logout' %}">
+                    <img src="{% static 'Home/images/logout.png' %}" id="img-logout">
+                </a>
+            </div>
+
+        </div>
+
+        <div id="area-visualizacao">
+            {% block area-visualizacao %}
+            {% endblock %}
+        </div>
+    </div>
+
+    
+</body>
+</html>

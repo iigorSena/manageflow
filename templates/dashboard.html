@@ -1,0 +1,21 @@
+{% load plotly_dash %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="pt_Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style-dashboard.css' %}">
+
+
+    <title>Login | ManageFlow</title>
+</head>
+<body>
+    <img src="{% static 'img/engrenagem.png' %}" alt="Engrenagem">
+    <img src="{% static 'img/avatar.png' %}" alt="Avatar">
+    {% plotly_app name="DashboardApp" %}
+
+</body>
+</html>

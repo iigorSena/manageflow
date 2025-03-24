@@ -1,0 +1,46 @@
+<hr class="linha-subtitle">
+
+<form method="post" id="form-cad_servico" action="{% url 'gerenciar_servicos' %}">
+    {% csrf_token %}
+
+    <div id="area-campos_cad_servicos">
+
+        <div id="area-campo_cad_servico_sigla" class="area-campos_form">
+            <label for="id_nome" class="label-cad_servicos">Sigla</label>
+            <input type="text" name="sigla" id="input-cad_servico_sigla" value="{{ FomCadServico.instance.sigla }}" maxlength="3" required>
+        </div>
+
+        <div id="area-campo_cad_servico_nome" class="area-campos_form">
+            <label for="id_descricao" class="label-cad_servicos">Serviço</label>
+            <input type="text" name="N_Servico" id="input-cad_servico_nome" value="{{ FomCadServico.instance.N_Servico }}" maxlength="30" required>
+        </div>
+
+    </div>
+
+    <button type="submit" id="btn-cad_servico">+</button>
+</form>
+
+<hr>
+
+<table>
+    <thead>
+        <tr>
+            <th>Sigla</th>
+            <th>Serviço</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for servico in servicos %}
+            <tr>
+                <td>{{ servico.sigla }}</td>
+                <td>{{ servico.N_Servico }}</td>
+                <td>{{ servico.status }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="3">Nenhum serviço cadastrado, clique em "+" para adicionar.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

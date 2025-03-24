@@ -1,0 +1,16 @@
+<form method="post" id="form-cad_local">
+    {% csrf_token %}
+
+    <div id="area-campos_cad_locais">
+
+        <div id="area-campo_cad_local_nome" class="area-campos_form">
+            <label for="id_descricao" class="label-cad_locais">Local</label>
+            <input type="text" name="N_Local" id="input-cad_local_nome" value="{{ FomCadServico.instance.N_Servico }}" maxlength="30" required>
+        </div>
+
+    </div>
+
+    <button type="submit" id="btn-cad_local">+</button>
+</form>
+
+<hr>

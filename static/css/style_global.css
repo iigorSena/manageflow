@@ -40,3 +40,13 @@ button{
     border: none;
     margin-left: 5px;
 }
+
+.linha-subtitle{
+    height: 4px;
+    width: 100%;
+    background:linear-gradient(to right, transparent, #00C3FF, transparent);
+    border: none;
+    margin-left: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}

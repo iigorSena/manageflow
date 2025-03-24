@@ -2,12 +2,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
 }
 
 #area-btns_config{
-    width: 50%;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -27,7 +27,7 @@
     box-shadow: 0px 0px 20px #00c3ff;
 }
 #area-config_opcoes{
-    width: 50%;
+    width: 80%;
 }
 
 /* Form Cad Serviço ========================== */
@@ -86,4 +86,23 @@
     background-color: white;
     border: 2px solid #00c3ff;
     box-shadow: 1px 1px 20px #00c3ff;
+}
+
+
+/* FORM COM REGISTROS */
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+tr{
+    color: white;
+    background-color: #002E3D;
+}
+th{
+    border-top: 1px solid #00C3FF;
+    border-inline: 1px solid #00Ceff;
+    border-bottom: 3px solid #00C3FF;
+    padding-block: 5px;
+
 }

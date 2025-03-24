@@ -3,6 +3,7 @@
 
 {% block conexao %}
 <link rel="stylesheet" href="{% static 'Configuracoes/css/style_config.css' %}">
+<link rel="stylesheet" href="{% static 'Configuracoes/css/style-config_gerenciar_servicos.css' %}">
 {% endblock%}
 
 {% block title %}
@@ -18,12 +19,19 @@
 
 <div id="area-configuracoes">
     <div id="area-btns_config">
-        <button type="button" id="btn-config_servico" class="btn-config">Novo Serviço</button>
-        <button type="button" id="btn-config_locais" class="btn-config">Locais</button>
-        <button type="button" id="btn-config_senhas" class="btn-config">Senhas</button>
+        <button type="button" id="btn-config_servico" class="btn-config" 
+            data-url="{% url 'gerenciar_servicos' %}">Gerenciar Serviços</button>
+
+        <button type="button" id="btn-config_locais" class="btn-config" 
+            data-url="{% url 'gerenciar_locais' %}">Locais</button>
+
+        <button type="button" id="btn-config_senhas" class="btn-config" 
+            data-url="{% url 'gerenciar_senhas' %}">Senhas</button>
     </div>
 
+
     <div id="area-config_opcoes">
+        {% include "Configuracoes/configuracoes-gerenciar_servicos.html" %}
     </div>
     
 </div>
@@ -31,16 +39,6 @@
 
 
 {% block conexao_js %}
-<script>
-    document.getElementById("btn-config_servico").addEventListener("click", function () {
-        fetch("{% url 'novo_servico' %}", {
-            headers: { "X-Requested-With": "XMLHttpRequest" } // Indica uma requisição AJAX
-        })
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("area-config_opcoes").innerHTML = data;
-        })
-        .catch(error => console.error("Erro ao carregar:", error));
-    });
-</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/mecanismos_config.js' %}"></script>
 {% endblock %}

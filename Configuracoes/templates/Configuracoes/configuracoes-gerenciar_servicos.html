@@ -1,3 +1,5 @@
+{% load static %}
+
 <hr class="linha-subtitle">
 
 <form method="post" id="form-cad_servico" action="{% url 'gerenciar_servicos' %}">
@@ -17,30 +19,71 @@
 
     </div>
 
-    <button type="submit" id="btn-cad_servico">+</button>
+    <button type="submit" name="cadastrar" id="btn-cad_servico">+</button>
 </form>
 
-<hr>
+<hr> <!-- Exibiçao da Tabela de Registros -->
 
-<table>
+<form method="post" action="{% url 'gerenciar_servicos' %}" id="form-geren_servicos">
+    {% csrf_token %}
+<table id="table-config_servicos">
     <thead>
         <tr>
-            <th>Sigla</th>
-            <th>Serviço</th>
-            <th>Status</th>
+            <th id="area-cabecalho_sigla">Sigla</th>
+            <th id="area-cabecalho_servico">Serviço</th>
+            <th id="area-cabecalho_status">Status</th>
+            <th id="area-cabecalho_acao">Ação</th>
         </tr>
     </thead>
     <tbody>
         {% for servico in servicos %}
             <tr>
-                <td>{{ servico.sigla }}</td>
-                <td>{{ servico.N_Servico }}</td>
-                <td>{{ servico.status }}</td>
+                <td id="area-campo_input_sigla">
+                    <input type="text" name="sigla" value="{{ servico.sigla }}" id="input-form_sigla_{{servico.id}}" class="input_form" disabled>
+                </td>
+
+                <td>
+                    <input type="text" name="N_Servico" value="{{ servico.N_Servico }}" id="input-form_servico_{{servico.id}}" class="input_form" disabled>
+                </td>
+
+                <td id="area-campo_input_status">
+                    <select name="status" id="input-form_status_{{servico.id}}" disabled
+                    class="{% if servico.status == 'Ativo' %}status-ativo{% else %}status-inativo{% endif %}">
+                    {% for choice_value, choice_label in servico.StatusChoicesServico.choices %}
+                        <option value="{{ choice_value }}" {% if servico.status == choice_value %}selected{% endif %}>
+                            {{ choice_label }}
+                        </option>
+                    {% endfor %}
+                    </select>
+                </td>
+
+                <td id="area-campo_input_acao">
+                    <div id="area-btns_acao">
+                        <button type="button" id="btn-editar_servico_{{ servico.id }}" class="btn-edit">
+                            <img src="{% static 'img/lapis.png' %}" id="img-acao_editar_{{ servico.id }}" class="img-acao" style="height: 20px">
+                        </button>
+
+                        <button type="submit" name="servico_id" value={{ servico.id }} id="btn-confirmar_servico_{{ servico.id }}" class="btn-edit" style="display:none">
+                            <img src="{% static 'img/confirmar.png' %}" id="img-acao_confirmar_{{ servico.id }}" class="img-acao" style="height: 18px">
+                        </button>
+
+                        <button type="button" name="cancelar" id="btn-cancelar_servico_{{ servico.id }}" class="btn-edit" style="display:none">
+                            <img src="{% static 'img/cancelar.png' %}" id="img-acao_cancelar_{{ servico.id }}" class="img-acao" style="height: 19px">
+                        </button>
+
+                        <button type="submit" name="deletar" value={{ servico.id }} id="btn-deletar_servico_{{ servico.id }}" class="btn-edit" style="display:none">
+                            <img src="{% static 'img/lixeira.png' %}" id="img-acao_delete" class="img-acao" style="height: 20px">
+                        </button>
+                    </div>
+                </td>
             </tr>
         {% empty %}
             <tr>
-                <td colspan="3">Nenhum serviço cadastrado, clique em "+" para adicionar.</td>
+                <td colspan="4">Nenhum serviço cadastrado, clique em "+" para adicionar.</td>
             </tr>
         {% endfor %}
     </tbody>
 </table>
+</form>
+
+

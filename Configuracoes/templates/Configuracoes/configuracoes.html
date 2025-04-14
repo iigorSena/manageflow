@@ -21,6 +21,9 @@
     <div id="area-btns_config">
         <button type="button" id="btn-config_servico" class="btn-config" 
             data-url="{% url 'gerenciar_servicos' %}">Gerenciar Serviços</button>
+        
+        <button type="button" id="btn-config_usuario" class="btn-config" 
+            data-url="{% url 'gerenciar_servicos' %}">Gerenciar Usuários</button>
 
         <button type="button" id="btn-config_locais" class="btn-config" 
             data-url="{% url 'gerenciar_locais' %}">Locais</button>
@@ -31,7 +34,7 @@
 
 
     <div id="area-config_opcoes">
-        {% include "Configuracoes/configuracoes-gerenciar_servicos.html" %}
+        
     </div>
     
 </div>

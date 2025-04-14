@@ -39,7 +39,7 @@ header{
 }
 
 #menu-esquerdo{
-    height: 95vh;
+    height: 92vh;
     display: flex;
     flex-direction: column;
     padding-top: 20px;
@@ -87,7 +87,7 @@ header{
 
 #area-visualizacao{
     width: 100%;
-    min-height: 80vh;
+    max-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;

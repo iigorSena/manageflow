@@ -6,11 +6,18 @@ input{
     padding-block: 5px;
     border-inline: none;
     border-bottom:1px solid #00c3ff;
+    opacity: 1;
 }
 input:focus{
     outline: none;
     background-color: #03394b;
     border-bottom:3px solid #00c3ff;
+
+}
+select{
+    font-size: 13pt;
+    padding-block: 5px;
+    font-weight: bold;
 
 }
 button{

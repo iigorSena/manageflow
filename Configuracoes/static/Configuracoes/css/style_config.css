@@ -30,7 +30,7 @@
     width: 80%;
 }
 
-/* Form Cad Serviço ========================== */
+/* =======================Form Cad Serviço ========================== */
 #form-cad_servico{
     display: flex;
     flex-direction: row;
@@ -89,7 +89,7 @@
 }
 
 
-/* FORM COM REGISTROS */
+/* ==================FORM COM REGISTROS===================== */
 
 table{
     width: 100%;
@@ -97,12 +97,62 @@ table{
 }
 tr{
     color: white;
-    background-color: #002E3D;
+    background-color: #00C3FF;
 }
 th{
-    border-top: 1px solid #00C3FF;
-    border-inline: 1px solid #00Ceff;
-    border-bottom: 3px solid #00C3FF;
+    border-top: 1px solid #002E3D;
+    border-inline: 1px solid #002E3D;
+    border-bottom: 3px solid #002E3D;
     padding-block: 5px;
+    font-size: 13pt;
 
+}
+tbody tr:nth-child(odd) {
+    background-color: #002E3D;
+}
+tbody tr:nth-child(odd):hover{
+    transform: scale(1.01);
+    border: 1px solid #00e1ff;
+    box-shadow: 0px 4px 10px black;
+}
+tbody tr:nth-child(even) {
+    background-color: #217d99;
+}
+tbody tr:nth-child(even):hover{
+    transform: scale(1.01);
+    border: 1px solid #00e1ff;
+    box-shadow: 0px 4px 10px black;
+}
+td{
+    color: white;
+    padding-block: 5px;
+}
+
+.input_form{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+select{
+    background-color: transparent;
+    width: 100%;
+    color: white;
+    opacity: 1;
+    border: none;
+}
+.status-ativo {
+    color: rgb(0, 255, 0);
+    font-weight: bold;
+    text-align: center;
+}
+
+.status-inativo {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-edit{
+    background-color: transparent;
+    border: none;
 }

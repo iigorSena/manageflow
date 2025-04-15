@@ -1,6 +1,9 @@
+
+
 #area-cabecalho_sigla{
-    width: 5%;
+    width: 6%;
 }
+
 [id^="input-form_sigla_"]{
     text-align: center;
     text-transform: uppercase;
@@ -13,7 +16,7 @@
     border-bottom: 3px solid #00C3FF;
 }
 #area-cabecalho_status{
-    width: 12%;
+    width: 10%;
 }
 #area-campo_input_status{
     display: flex;

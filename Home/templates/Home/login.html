@@ -12,30 +12,36 @@
     <title>Autentificação | Manage Flow</title>
 </head>
 <body>
-        <div id="fieldset">
-            <form id="form_login" method="POST">
-                {% csrf_token %}
-                <h2>Login</h2>
-                <hr>
-
-                <div id="area-username" class="area-login">
-                    {{ login_form.username.label_tag }}
-                    {{ login_form.username }}
-                </div>
-
-                <div id="area-password" class="area-login">
-                    {{ login_form.password.label_tag }}
-                    {{ login_form.password }}
-                </div>
-
-                {% if message_error %}
-                    <span>{{ message_error }} </span>
-                {% endif %}
-
-                <button id="btn-login" type="submit">Entrar</button>
-            </form>
-
-            <span id="version"> Versão 1.0.0</span>
+    <div id="bg-animation">
+        <div id="area-titulo">
+            <h2 id="titulo-animado_login">Seu Gerenciador de filas...</h2>
         </div>
+    </div>
+
+    <div id="bg-login">
+        <form id="form_login" method="POST">
+            {% csrf_token %}
+            <h2>Login</h2>
+            <hr>
+
+            <div id="area-username" class="area-login">
+                {{ login_form.username.label_tag }}
+                {{ login_form.username }}
+            </div>
+
+            <div id="area-password" class="area-login">
+                {{ login_form.password.label_tag }}
+                {{ login_form.password }}
+            </div>
+
+            {% if message_error %}
+                <span>{{ message_error }} </span>
+            {% endif %}
+
+            <button id="btn-login" type="submit">Entrar</button>
+        </form>
+
+        <span id="version"> Versão 1.0.0</span>
+    </div>
 </body>
 </html>

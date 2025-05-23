@@ -5,7 +5,7 @@ from django.views.generic import RedirectView
 
 from Home.views import LoginView, LogoutView, HomeView
 from Triagem.views import TriagemView
-from Configuracoes.views import ConfiguracoesView, gerenciar_servicos, listar_servicos_json, gerenciar_locais, gerenciar_senhas
+from Configuracoes.views import ConfiguracoesView, gerenciar_servicos, listar_servicos_json, gerenciar_locais, listar_locais_json, gerenciar_senhas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -21,5 +21,7 @@ urlpatterns = [
     path("listar-servicos-json/", listar_servicos_json, name="listar_servicos_json"),
     
     path('gerenciar-locais/', gerenciar_locais.as_view(), name='gerenciar_locais'),
+    path("listar-locais-json/", listar_locais_json, name="listar_locais_json"),
+
     path('gerenciar-senhas/', gerenciar_senhas.as_view(), name='gerenciar_senhas'),
 ]

@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from Administracao.models import SetoresCad
 from .forms import CadServicosForm, CadLocaisForm
-from .models import ServicosCad
+from .models import ServicosCad, LocaisCad
 
 # CONFIGURAÇÕES ==============================================================================================
 class ConfiguracoesView(LoginRequiredMixin, TemplateView):
@@ -82,18 +82,89 @@ class gerenciar_servicos(LoginRequiredMixin, View):
 def listar_servicos_json(request):
     user = request.user
     setor = user.setores.first()
-    servicos = ServicosCad.objects.filter(setores=setor).values("sigla", nome=F("N_Servico"))
+    servicos = ServicosCad.objects.filter(setores=setor).values("sigla", nome=F("N_Servico")) # type: ignore
 
     return JsonResponse({
         "servicos": list(servicos)
     })
     
-#Locais
+#Locais =======================================================================
 class gerenciar_locais(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy('login')
     template_name = 'Configuracoes/configuracoes-gerenciar_locais.html'
     
-#Senhas
+    def get(self, request, *args, **kwargs):
+        user = self.request.user
+        setor = user.setores.first()  
+
+        locais = LocaisCad.objects.filter(setores=setor)
+        FormCadLocais = CadLocaisForm
+        
+        context = {
+            'locais': locais, #Passa os registros
+            'FomCadLocais': FormCadLocais #Passa o form vazio
+        }
+        return render(request, self.template_name, context)
+    
+    def post(self, request):
+        if "deletar" in request.POST:
+            return self.deletar(request)
+        else:
+            return self.cadastrar_editar(request)
+        
+    def deletar(self, request):
+        id_local = request.POST.get("deletar")
+        local = get_object_or_404(LocaisCad, id=id_local)
+        local.delete()
+        return JsonResponse({"status": "success"})
+        
+    def cadastrar_editar(self, request, *args, **kwargs):
+        local_id = request.POST.get("local_id")
+        print(f'O local_id é: ', local_id)
+
+        if local_id:
+            local = get_object_or_404(LocaisCad, id=local_id)
+            form = CadLocaisForm(request.POST, instance=local)
+        else:
+            form = CadLocaisForm(request.POST)
+            print(f'Dados do form: ', form)
+
+        if form.is_valid():
+            print(f'Dados do form validados: ', form)
+            local = form.save(commit=False)
+            setor = request.user.setores.first()
+            print(f'O setor do usuário logado é: ', setor)
+            local.save()
+            local.setores.add(setor)
+
+            if local_id:
+                return JsonResponse({
+                    "status": "success",
+                    "message": "Local atualizado com sucesso!"
+                })
+            else:
+                return JsonResponse({
+                    "status": "success",
+                    "message": "Local cadastrado com sucesso!"
+                })
+
+        return JsonResponse({
+            "status": "error",
+            "message": "Erro ao salvar local!",
+            "errors": form.errors
+        }, status=400)
+    
+def listar_locais_json(request):
+    user = request.user
+    locais = LocaisCad.objects.filter(usuario=user).values("id", "N_Local", "status")
+
+    return JsonResponse({
+        "status": "success",
+        "locais": list(locais)
+    })
+
+    
+#Senhas =======================================================================
 class gerenciar_senhas(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy('login')
     template_name = 'Configuracoes/configuracoes-gerenciar_senhas.html'

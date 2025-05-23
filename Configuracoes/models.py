@@ -16,12 +16,12 @@ class ServicosCad(models.Model):
         return self.N_Servico
     
 class LocaisCad(models.Model):
-    class StatusChoicesServico(models.TextChoices):
+    class StatusChoicesLocal(models.TextChoices):
         ATIVO = 'Ativo', 'Ativo'
         INATIVO = 'Inativo', 'Inativo'
         
     N_Local = models.CharField(max_length=50, verbose_name="Serviços")
-    status = models.CharField(max_length=8, choices=StatusChoicesServico.choices, default=StatusChoicesServico.ATIVO)
+    status = models.CharField(max_length=8, blank=True, null=True, choices=StatusChoicesLocal.choices, default=StatusChoicesLocal.ATIVO)
     
     setores = models.ManyToManyField(SetoresCad, related_name="Servico_Locais")
     

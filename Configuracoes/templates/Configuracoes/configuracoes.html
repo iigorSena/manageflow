@@ -24,7 +24,7 @@
             data-url="{% url 'gerenciar_servicos' %}">Gerenciar Serviços</button>
 
         <button type="button" id="btn-config_locais" class="btn-config" 
-            data-url="{% url 'gerenciar_locais' %}">Locais</button>
+            data-url="{% url 'gerenciar_locais' %}">Gerenciar Locais</button>
         
         <button type="button" id="btn-config_usuario" class="btn-config" 
             data-url="{% url 'gerenciar_servicos' %}">Gerenciar Usuários</button>
@@ -44,5 +44,6 @@
 
 {% block conexao_js %}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{% static 'js/mecanismos_config.js' %}"></script>
+<script src="{% static 'js/mecanismos_configuracoes-gerenciar_servicos.js' %}"></script>
+<script src="{% static 'js/mecanismos_configuracoes-gerenciar_locais.js' %}"></script>
 {% endblock %}

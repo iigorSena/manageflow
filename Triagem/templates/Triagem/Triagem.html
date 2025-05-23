@@ -1,0 +1,43 @@
+{% extends 'Home/modelo.html' %}
+{% load static %}
+
+{% block conexao %}
+
+{% endblock%}
+
+{% block title %}
+<title>Triagem | Manage Flow</title>
+{% endblock %}
+
+{% block area-visualizacao %}
+<div id="area-title">
+    <h2 id="title-configuracoes" class="title">Triagem</h2>
+    <hr id="linha-title_configuracoes" class="linha-title">
+
+    <table class="table table-striped">
+        <thead>
+            <tr style=>
+                <th>Serviço</th>
+                <th>Total de Senhas Hoje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in servicos_com_totais %}
+            <tr>
+                <td style="color: blue">
+                    <input type="text" value = {{ item.servico }}>
+                </td>
+                <td>{{ item.total }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+
+</div>
+
+{% endblock %}
+
+
+{% block conexao_js %}
+
+{% endblock %}

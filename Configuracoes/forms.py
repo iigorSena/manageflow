@@ -15,4 +15,4 @@ class CadLocaisForm(forms.ModelForm):
         model = LocaisCad
         fields = ["N_Local", "status"]
         
-    status = forms.ChoiceField(choices=ServicosCad.StatusChoicesServico.choices, initial=ServicosCad.StatusChoicesServico.ATIVO, required=False)
+    status = forms.ChoiceField(choices=LocaisCad.StatusChoicesLocal.choices, initial=LocaisCad.StatusChoicesLocal.ATIVO, required=False)

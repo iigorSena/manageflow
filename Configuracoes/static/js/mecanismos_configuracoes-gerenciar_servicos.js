@@ -29,7 +29,7 @@ buttons.forEach(button => {
 });
 
 
-// Controle da visibilidade dos botões de ação
+// Controle da visibilidade dos botões de ação Gerenciar Serviços
 function inicializarEventosBotoes() {
     document.querySelectorAll("[id^='btn-editar_servico_']").forEach(btnEditar => {
         btnEditar.addEventListener("click", function () {

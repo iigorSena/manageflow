@@ -43,12 +43,14 @@
 
                 <button type="buttom" id="btn-menu_monitoramento" class="btn-menu">Monitoramento</button>
 
-                <button type="buttom" id="btn-menu_triagem" class="btn-menu">Triagem</button>
+                <button type="buttom" id="btn-menu_triagem" class="btn-menu"
+                    onclick="window.location.href='{% url 'triagem' %}' ">
+                    Triagem</button>
 
                 <button type="buttom" id="btn-menu_relatorios" class="btn-menu">Relatórios</button>
                 
                 <button type="buttom" id="btn-menu_configuracoes" class="btn-menu"
-                 onclick="window.location.href='{% url 'configuracoes' %}'">
+                 onclick="window.location.href='{% url 'configuracoes' %}' ">
                  Configurações</button>
             </div>
 

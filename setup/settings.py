@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'Home',
     'Administracao',
     'Configuracoes',
+    'Triagem',
 ]
 
 MIDDLEWARE = [

@@ -2,14 +2,14 @@
 
 <hr class="linha-subtitle">
 
-<form method="post" id="form-cad_local" class="form-cad_conf">
+<form method="post" id="form-cad_local" class="form-cad_conf" action="{% url 'gerenciar_locais' %}">
     {% csrf_token %}
 
     <div id="area-campos_cad_locais" class="area-campos_cad">
 
         <div id="area-campo_cad_local_nome" class="area-campos_form">
             <label for="id_descricao" class="label-cad">Local</label>
-            <input type="text" name="N_Local" id="input-cad_local_nome" value="{{ FomCadServico.instance.N_Servico }}" maxlength="30" required>
+            <input type="text" name="N_Local" id="input-cad_local_nome" value="{{ FomCadLocais.instance.N_Local }}" maxlength="30" required>
         </div>
 
     </div>
@@ -18,3 +18,62 @@
 </form>
 
 <hr>
+
+<!-- Exibiçao da Tabela de Registros -->
+
+<form method="post" action="{% url 'gerenciar_locais' %}" id="form-geren_locais">
+    {% csrf_token %}
+<table id="table-config_locais">
+    <thead>
+        <tr>
+            <th id="area-cabecalho_servico">Local</th>
+            <th id="area-cabecalho_status">Status</th>
+            <th id="area-cabecalho_acao">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for local in locais %}
+            <tr>
+                <td>
+                    <input type="text" name="N_Local" value="{{ local.N_Local }}" id="input-form_local_{{local.id}}" class="input_form" disabled>
+                </td>
+
+                <td id="area-campo_input_status">
+                    <select name="status" id="input-form_status_{{local.id}}" disabled
+                    class="{% if local.status == 'Ativo' %}status-ativo{% else %}status-inativo{% endif %}">
+                    {% for choice_value, choice_label in local.StatusChoicesLocal.choices %}
+                        <option value="{{ choice_value }}" {% if local.status == choice_value %}selected{% endif %}>
+                            {{ choice_label }}
+                        </option>
+                    {% endfor %}
+                    </select>
+                </td>
+
+                <td id="area-campo_input_acao">
+                    <div id="area-btns_acao">
+                        <button type="button" id="btn-editar_local_{{ local.id }}" class="btn-edit">
+                            <img src="{% static 'img/lapis.png' %}" id="img-acao_editar_{{ local.id }}" class="img-acao" style="height: 20px">
+                        </button>
+
+                        <button type="submit" name="local_id" value={{ local.id }} id="btn-confirmar_local_{{ local.id }}" class="btn-edit" style="display:none">
+                            <img src="{% static 'img/confirmar.png' %}" id="img-acao_confirmar_{{ local.id }}" class="img-acao" style="height: 18px">
+                        </button>
+
+                        <button type="button" name="cancelar" id="btn-cancelar_local_{{ local.id }}" class="btn-edit" style="display:none">
+                            <img src="{% static 'img/cancelar.png' %}" id="img-acao_cancelar_{{ local.id }}" class="img-acao" style="height: 19px">
+                        </button>
+
+                        <button type="submit" name="deletar" value={{ local.id }} id="btn-deletar_local_{{ local.id }}" class="btn-edit" style="display:none">
+                            <img src="{% static 'img/lixeira.png' %}" id="img-acao_delete" class="img-acao" style="height: 20px">
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4">Nenhum local cadastrado, clique em "+" para adicionar.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</form>

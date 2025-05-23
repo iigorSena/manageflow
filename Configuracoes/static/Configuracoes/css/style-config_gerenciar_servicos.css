@@ -1,4 +1,21 @@
+/* === Form Cad === */
 
+.area-campos_form{
+    display: flex;
+    flex-direction: column;
+}
+#area-campo_cad_servico_sigla{
+    width: 60px;
+}
+#input-cad_servico_sigla{
+    text-transform: uppercase;
+    text-align: center;
+}
+#area-campo_cad_servico_nome{
+    flex: 1 0 140px;
+}
+
+/* === Tabela de Registros === */
 
 #area-cabecalho_sigla{
     width: 6%;

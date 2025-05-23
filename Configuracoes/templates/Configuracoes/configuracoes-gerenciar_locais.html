@@ -1,16 +1,20 @@
-<form method="post" id="form-cad_local">
+{% load static %}
+
+<hr class="linha-subtitle">
+
+<form method="post" id="form-cad_local" class="form-cad_conf">
     {% csrf_token %}
 
-    <div id="area-campos_cad_locais">
+    <div id="area-campos_cad_locais" class="area-campos_cad">
 
         <div id="area-campo_cad_local_nome" class="area-campos_form">
-            <label for="id_descricao" class="label-cad_locais">Local</label>
+            <label for="id_descricao" class="label-cad">Local</label>
             <input type="text" name="N_Local" id="input-cad_local_nome" value="{{ FomCadServico.instance.N_Servico }}" maxlength="30" required>
         </div>
 
     </div>
 
-    <button type="submit" id="btn-cad_local">+</button>
+    <button type="submit" id="btn-cad_local" class="btn-cad">+</button>
 </form>
 
 <hr>

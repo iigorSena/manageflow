@@ -1,3 +1,5 @@
+/* === Tela Conf === */
+
 #area-configuracoes{
     width: 100%;
     height: 105%;
@@ -16,6 +18,7 @@
     margin-top: 20px;
 
 }
+
 .btn-config{
     flex: 1 0 100px;
     color: white;
@@ -27,14 +30,15 @@
     background-color: #00C3FF;
     box-shadow: 0px 0px 20px #00c3ff;
 }
-#area-config_opcoes{
+
+#area-config_view{
     width: 81%;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-/* =======================Form Cad Serviço ========================== */
-#form-cad_servico{
+/* ======================= Form Cad ========================== */
+.form-cad_conf{
     display: flex;
     flex-direction: row;
     align-items: end;
@@ -42,34 +46,20 @@
     margin-top: 10px;
 
 }
-#area-campos_cad_servicos{
+.area-campos_cad{
     display: flex;
     flex-wrap: wrap;
     flex: 1;
     gap: 15px;
 }
-.area-campos_form{
-    display: flex;
-    flex-direction: column;
-}
-#area-campo_cad_servico_sigla{
-    width: 60px;
-}
-#area-campo_cad_servico_nome{
-    flex: 1 0 140px;
 
-}
-.label-cad_servicos{
+.label-cad{
     color: white;
     font-weight: bold;
     margin-bottom: 2px;
 }
-#input-cad_servico_sigla{
-    text-transform: uppercase;
-    text-align: center;
-}
 
-#btn-cad_servico{
+.btn-cad{
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -84,7 +74,7 @@
     justify-content: center;
     align-items: center;
 }
-#btn-cad_servico:hover{
+.btn-cad:hover{
     color: #00c3ff;
     background-color: white;
     border: 2px solid #00c3ff;

@@ -4,6 +4,7 @@ from django.views.generic import RedirectView
 
 
 from Home.views import LoginView, LogoutView, HomeView
+from Triagem.views import TriagemView
 from Configuracoes.views import ConfiguracoesView, gerenciar_servicos, listar_servicos_json, gerenciar_locais, gerenciar_senhas
 
 urlpatterns = [
@@ -12,6 +13,8 @@ urlpatterns = [
     path('', LoginView.as_view(), name='login'),
     path('logout/', LogoutView, name='logout'),
     path('home/', HomeView.as_view(), name='home'),
+    
+    path('triagem/', TriagemView.as_view(), name='triagem'),
     
     path('configuracoes/', ConfiguracoesView.as_view(), name="configuracoes"),
     path('gerenciar-servicos/', gerenciar_servicos.as_view(), name='gerenciar_servicos'),

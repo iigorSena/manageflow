@@ -2,31 +2,33 @@
 
 <hr class="linha-subtitle">
 
-<form method="post" id="form-cad_servico" action="{% url 'gerenciar_servicos' %}">
+<form method="post" id="form-cad_servico" class="form-cad_conf" action="{% url 'gerenciar_servicos' %}">
     {% csrf_token %}
 
-    <div id="area-campos_cad_servicos">
+    <div id="area-campos_cad_servicos" class="area-campos_cad">
 
         <div id="area-campo_cad_servico_sigla" class="area-campos_form">
-            <label for="id_nome" class="label-cad_servicos">Sigla</label>
+            <label for="id_nome" class="label-cad">Sigla</label>
             <input type="text" name="sigla" id="input-cad_servico_sigla" value="{{ FomCadServico.instance.sigla }}" maxlength="3" required>
         </div>
 
         <div id="area-campo_cad_servico_nome" class="area-campos_form">
-            <label for="id_descricao" class="label-cad_servicos">Serviço</label>
+            <label for="id_descricao" class="label-cad">Serviço</label>
             <input type="text" name="N_Servico" id="input-cad_servico_nome" value="{{ FomCadServico.instance.N_Servico }}" maxlength="30" required>
         </div>
 
     </div>
 
-    <button type="submit" name="cadastrar" id="btn-cad_servico">+</button>
+    <button type="submit" name="cadastrar" id="btn-cad_servico" class="btn-cad">+</button>
 </form>
 
-<hr> <!-- Exibiçao da Tabela de Registros -->
+<hr>
+
+<!-- Exibiçao da Tabela de Registros -->
 
 <form method="post" action="{% url 'gerenciar_servicos' %}" id="form-geren_servicos">
     {% csrf_token %}
-<table id="table-config_servicos">
+<table id="table-config_servicos" id="area-config_opcoes">
     <thead>
         <tr>
             <th id="area-cabecalho_sigla">Sigla</th>

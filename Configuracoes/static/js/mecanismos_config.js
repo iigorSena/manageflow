@@ -2,13 +2,12 @@
 $(document).ready(function () {
     $('.btn-config').click(function () {
         let url = $(this).data('url'); // Obtém a URL do botão clicado
-        $('#area-config_opcoes').load(url, function () {
+        $('#area-config_view').load(url, function () {
             inicializarEventosBotoes(); // Agora os eventos são adicionados depois do carregamento
             inicializarEventosAjaxServico(); // Chama AJAX do Serviços
         });
     });
 });
-
 
 // Controle de destaque dos botões do Menu
 document.addEventListener("DOMContentLoaded", function() {
